@@ -1,0 +1,33 @@
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.socialIcons a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.socialIcons a:hover {
+    transform: scale(1.2);
+}
+
+.socialIcons img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+}

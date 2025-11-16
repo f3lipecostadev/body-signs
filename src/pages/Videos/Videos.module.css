@@ -1,0 +1,204 @@
+.videosPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+/* HERO SECTION */
+.teachingHero {
+  padding: 60px 30px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #6633FF10, #FFCC0010);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.teachingHero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.teachingHero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* BARRA DE BUSCA E FILTROS */
+.searchFilters {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.searchContainer {
+  position: relative;
+  margin-bottom: 25px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  border-radius: 25px;
+  border: 2px solid var(--medium-gray);
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 51, 255, 0.1);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 1.2rem;
+}
+
+.filterContainer {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.filterBtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.filterBtn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.filterBtn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* SEÇÃO DE VÍDEOS */
+.videosSection {
+  padding: 40px 30px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.videosHeader {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.videosCount {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 400;
+}
+
+/* GRADE DE VÍDEOS */
+.videosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* SEM RESULTADOS */
+.noResults {
+  text-align: center;
+  padding: 80px 20px;
+  color: #666;
+}
+
+.noResultsIcon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.noResults h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.noResults p {
+  font-size: 1.1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .teachingHero {
+    padding: 40px 20px 30px;
+  }
+  
+  .teachingHero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .videosSection {
+    padding: 30px 20px 60px;
+  }
+  
+  .videosGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .filterContainer {
+    gap: 8px;
+  }
+  
+  .filterBtn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .videosGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .videosHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

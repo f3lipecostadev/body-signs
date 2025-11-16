@@ -1,0 +1,231 @@
+/* HERO SECTION DA PÁGINA DE CONTATO */
+.contactHero {
+    padding: 60px 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #f0f4ff, #e8f0ff);
+}
+
+.contactHero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.contactHero h1::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.contactHero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-color);
+}
+
+/* SEÇÃO PRINCIPAL DE CONTATO */
+.contactSection {
+    padding: 60px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contactContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* FORMULÁRIO DE CONTATO */
+.contactFormContainer {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* INFORMAÇÕES DE CONTATO */
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.infoCard {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.infoTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.infoTitle span {
+    font-size: 1.8rem;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.socialLink:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.socialLink img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.teamSection {
+    padding: 80px 30px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.teamContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.teamHeader {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.teamTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.teamTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.teamSubtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* MENSAGEM DE SUCESSO */
+.successMessage {
+    background-color: var(--success-color);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .contactHero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .contactContainer {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contactFormContainer {
+        padding: 30px 25px;
+    }
+    
+    .teamGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .teamSection {
+        padding: 60px 20px;
+    }
+    
+    .teamTitle {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactHero {
+        padding: 40px 20px;
+    }
+    
+    .contactSection {
+        padding: 40px 20px;
+    }
+    
+    .contactFormContainer {
+        padding: 25px 20px;
+    }
+    
+    .infoCard {
+        padding: 25px 20px;
+    }
+    
+    .teamGrid {
+        grid-template-columns: 1fr;
+    }
+}

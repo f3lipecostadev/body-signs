@@ -1,0 +1,167 @@
+/* HERO SECTION DA PÁGINA DE JOGOS */
+.gamesHero {
+    padding: 60px 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #fff9e6, #fff0cc);
+}
+
+.gamesHero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.gamesHero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: var(--text-color);
+}
+
+/* SEÇÃO DE JOGOS */
+.gamesSection {
+    padding: 60px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gamesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+/* MODAL DO JOGO */
+.gameModal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modalGameContent {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.closeModal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #777;
+    background: none;
+    border: none;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.closeModal:hover {
+    color: var(--primary-color);
+}
+
+.gameArea {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* COMING SOON STYLES */
+.comingSoon {
+    text-align: center;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.comingSoonIcon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.comingSoon h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.comingSoon p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+.backButton {
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.backButton:hover {
+    background-color: var(--accent-color);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .gamesHero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .gamesGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .modalGameContent {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gamesGrid {
+        grid-template-columns: 1fr;
+    }
+}

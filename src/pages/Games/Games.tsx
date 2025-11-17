@@ -74,7 +74,6 @@ const Games: React.FC = () => {
         </p>
       </section>
 
-      {/* Games Grid Section */}
       <section className={styles.gamesSection}>
         <div className={styles.gamesGrid}>
           {games.map(game => (

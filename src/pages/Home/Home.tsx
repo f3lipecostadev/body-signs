@@ -42,12 +42,19 @@ const Home: React.FC = () => {
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaButtons}>
+<<<<<<< HEAD
           <Link to="/videos">
             <button className={`${styles.ctaBtn} ${styles.primary}`}>
               Explorar Libras em Vídeos
             </button>
           </Link>
           <Link to="/games">
+=======
+          <button className={`${styles.ctaBtn} ${styles.primary}`}>
+            Explorar Libras em Vídeos
+          </button>
+          <Link to="/">
+>>>>>>> 97e39b68aeb83cc01640677f86ee6959c3bb1766
             <button className={`${styles.ctaBtn} ${styles.secondary}`}>
               Aprender Jogando
             </button>

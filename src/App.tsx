@@ -7,6 +7,7 @@ import Videos from './pages/Videos/Videos';
 import Contact from './pages/Contact/Contact';
 import Games from './pages/Games/Games';
 import './styles/globals.css';
+import AdminMessages from './pages/AdminMessages/AdminMessages';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <Route path="/videos" element={<Videos />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/games" element={<Games />} />
+          <Route path="/admin/messages" element={<AdminMessages />} />
         </Routes>
         <Footer />
       </div>

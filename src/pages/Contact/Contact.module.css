@@ -13,18 +13,6 @@
     position: relative;
 }
 
-.contactHero h1::after{
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--accent-color);
-    border-radius: 2px;
-}
-
 .contactHero p {
     font-size: 1.2rem;
     max-width: 600px;
@@ -135,18 +123,6 @@
     color: var(--primary-color);
     margin-bottom: 20px;
     position: relative;
-}
-
-.teamTitle::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--accent-color);
-    border-radius: 2px;
 }
 
 .teamSubtitle {

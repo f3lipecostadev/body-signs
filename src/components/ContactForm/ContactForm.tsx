@@ -6,6 +6,32 @@ interface ContactFormProps {
   onSubmit: (data: ContactFormData) => void;
 }
 
+// Classificação automática da mensagem
+const classifyMessage = (text: string): string => {
+  const lower = text.toLowerCase();
+
+  if (lower.includes('amo') || lower.includes('gostei') || lower.includes('parabéns') || lower.includes('muito bom'))
+    return 'elogio';
+
+  if (lower.includes('ruim') || lower.includes('péssimo') || lower.includes('critico') || lower.includes('não gostei'))
+    return 'crítica';
+
+  if (lower.includes('como') || lower.includes('quando') || lower.includes('onde') || lower.endsWith('?'))
+    return 'dúvida';
+
+  if (lower.includes('erro') || lower.includes('bug') || lower.includes('problema') || lower.includes('travando'))
+    return 'problema técnico';
+
+  return 'outro';
+};
+
+// Salvar no LocalStorage
+const saveToLocalStorage = (data: any) => {
+  const existing = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+  const updated = [...existing, data];
+  localStorage.setItem('contactMessages', JSON.stringify(updated));
+};
+
 const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -22,7 +48,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       [name]: value
     }));
 
-    // Limpar erro do campo quando usuário começar a digitar
     if (errors[name as keyof ContactFormData]) {
       setErrors(prev => ({
         ...prev,
@@ -56,7 +81,18 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
     e.preventDefault();
     
     if (validateForm()) {
-      onSubmit(formData);
+      const category = classifyMessage(formData.message);
+
+      const fullData = {
+        ...formData,
+        category,
+        timestamp: new Date().toISOString()
+      };
+
+      saveToLocalStorage(fullData);
+
+      onSubmit(fullData);
+
       setFormData({ name: '', email: '', message: '' });
       setErrors({});
     }
@@ -78,9 +114,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       <h2 className={styles.formTitle}>Envie sua Mensagem</h2>
       <form className={styles.contactForm} onSubmit={handleSubmit} noValidate>
         <div className={styles.formGroup}>
-          <label htmlFor="name" className={styles.formLabel}>
-            Nome Completo
-          </label>
+          <label htmlFor="name" className={styles.formLabel}>Nome Completo</label>
           <input
             type="text"
             id="name"
@@ -95,9 +129,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
         </div>
         
         <div className={styles.formGroup}>
-          <label htmlFor="email" className={styles.formLabel}>
-            E-mail
-          </label>
+          <label htmlFor="email" className={styles.formLabel}>E-mail</label>
           <input
             type="email"
             id="email"
@@ -112,9 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
         </div>
         
         <div className={styles.formGroup}>
-          <label htmlFor="message" className={styles.formLabel}>
-            Mensagem
-          </label>
+          <label htmlFor="message" className={styles.formLabel}>Mensagem</label>
           <textarea
             id="message"
             name="message"

@@ -42,19 +42,13 @@ const Home: React.FC = () => {
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaButtons}>
-<<<<<<< HEAD
           <Link to="/videos">
             <button className={`${styles.ctaBtn} ${styles.primary}`}>
               Explorar Libras em Vídeos
             </button>
           </Link>
+
           <Link to="/games">
-=======
-          <button className={`${styles.ctaBtn} ${styles.primary}`}>
-            Explorar Libras em Vídeos
-          </button>
-          <Link to="/">
->>>>>>> 97e39b68aeb83cc01640677f86ee6959c3bb1766
             <button className={`${styles.ctaBtn} ${styles.secondary}`}>
               Aprender Jogando
             </button>
@@ -70,11 +64,13 @@ const Home: React.FC = () => {
             <h3>Assista</h3>
             <p>Vídeos em Libras feitos por alunos</p>
           </div>
+
           <div className={styles.featureItem}>
             <div className={styles.featureIcon}>🎮</div>
             <h3>Aprenda</h3>
             <p>Jogos interativos para praticar</p>
           </div>
+
           <div className={styles.featureItem}>
             <div className={styles.featureIcon}>✓</div>
             <h3>Avalie</h3>

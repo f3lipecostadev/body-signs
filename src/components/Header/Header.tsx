@@ -1,55 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const Header: React.FC = () => {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isActive = (path: string) => {
-    return location.pathname === path ? styles.active : '';
-  };
+  const isActive = (path: string) => location.pathname === path ? styles.active : '';
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header>
       <nav className={styles.navContainer}>
-        <Link to="/" className={styles.logo}>
-          <img
-            src="/images/img-logo.png"
-            alt="Logo Body Signs - Mão fazendo sinal em Libras"
-          />
-        </Link>
-
-        <div className={styles.navCenter}>
-          <Link to="/">
-            <button className={`${styles.navBtn} ${isActive('/')}`}>
-              Home
-            </button>
-          </Link>
-
-          <Link to="/videos">
-            <button className={`${styles.navBtn} ${isActive('/videos')}`}>
-              Corpo em Libras
-            </button>
-          </Link>
-
-          <Link to="/games">
-            <button className={`${styles.navBtn} ${isActive('/games')}`}>
-              Jogos
-            </button>
-          </Link>
+        {/* Hamburger - mobile */}
+        <div className={styles.menuToggle} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
 
-        <Link to="/contact">
-          <button
-            className={`${styles.navBtn} ${styles.contactBtn} ${isActive('/contact')}`}
-          >
+        {/* Logo */}
+        <Link to="/" className={styles.logo} onClick={closeMenu}>
+          <img src="/images/img-logo.png" alt="Logo Body Signs" />
+        </Link>
+
+        {/* Menu desktop */}
+        <div className={styles.navCenter}>
+          <Link to="/"><button className={`${styles.navBtn} ${isActive('/')}`}>Home</button></Link>
+          <Link to="/videos"><button className={`${styles.navBtn} ${isActive('/videos')}`}>Corpo em Libras</button></Link>
+          <Link to="/games"><button className={`${styles.navBtn} ${isActive('/games')}`}>Jogos</button></Link>
+        </div>
+
+        <Link to="/contact" className={styles.desktopContactBtn}>
+          <button className={`${styles.navBtn} ${styles.contactBtn} ${isActive('/contact')}`}>
             Contato
-            <img
-              src="/images/icon-contact-home.png"
-              alt="Ícone de contato"
-            />
+            <img src="/images/icon-contact-home.png" alt="Ícone de contato" />
           </button>
         </Link>
+
+        {/* Menu mobile */}
+        <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
+          <Link to="/" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/')}`}>Home</span></Link>
+          <Link to="/videos" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/videos')}`}>Corpo em Libras</span></Link>
+          <Link to="/games" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/games')}`}>Jogos</span></Link>
+          <Link to="/contact" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/contact')}`}>Contato</span></Link>
+        </div>
+
+        {/* Overlay */}
+        {isMenuOpen && <div className={styles.overlay} onClick={closeMenu}></div>}
       </nav>
     </header>
   );

@@ -5,6 +5,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
+    position: relative;
 }
 
 .logo img {
@@ -63,20 +64,120 @@
     color: white;
 }
 
-/* Responsividade */
+/* Hamburger */
+.menuToggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.menuToggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Menu mobile */
+.mobileMenu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    padding: 80px 20px 20px 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.mobileMenuOpen {
+    left: 0;
+}
+
+.mobileLink {
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobileText {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.mobileText.active {
+    font-weight: 700;
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.mobileLink:hover .mobileText {
+    color: #7d3aff;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     .navContainer {
-        flex-direction: column;
+        flex-direction: row;
         margin: 20px 15px;
+        justify-content: space-between;
+        position: relative;
     }
-    
-    .navCenter {
-        gap: 15px;
+
+    /* Mostrar apenas hamburger + logo */
+    .menuToggle {
+        display: flex;
+        order: 1;
     }
-    
+
+    .logo {
+        order: 2;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .navCenter,
+    .desktopContactBtn,
     .navBtn {
-        padding: 10px 25px;
-        font-size: 16px;
-        min-width: 120px;
+        display: none;
+    }
+
+    .mobileMenu,
+    .overlay {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobileMenu {
+        width: 80%;
+    }
+
+    .logo img {
+        width: 150px;
     }
 }

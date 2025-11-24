@@ -1,4 +1,3 @@
-/* HERO SECTION DA PÁGINA DE CONTATO */
 .contactHero {
     padding: 60px 30px;
     text-align: center;
@@ -10,7 +9,6 @@
     font-weight: 800;
     color: var(--primary-color);
     margin-bottom: 20px;
-    position: relative;
 }
 
 .contactHero p {
@@ -20,7 +18,6 @@
     color: var(--text-color);
 }
 
-/* SEÇÃO PRINCIPAL DE CONTATO */
 .contactSection {
     padding: 60px 30px;
     max-width: 1200px;
@@ -34,7 +31,6 @@
     align-items: start;
 }
 
-/* FORMULÁRIO DE CONTATO */
 .contactFormContainer {
     background: white;
     padding: 40px;
@@ -42,7 +38,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* INFORMAÇÕES DE CONTATO */
 .contactInfo {
     display: flex;
     flex-direction: column;
@@ -66,40 +61,40 @@
     gap: 10px;
 }
 
-.infoTitle span {
-    font-size: 1.8rem;
-}
-
 .socialLinks {
     display: flex;
     gap: 15px;
     margin-top: 20px;
 }
 
-.socialLink {
+/* —————— ÍCONES (PADRÃO DO FOOTER) —————— */
+
+.iconBox {
+    width: 42px;
+    height: 42px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--light-gray);
+    align-items: center;
+    background: white;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.socialLink:hover {
+.iconBox:hover {
     background-color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: scale(1.1);
+    opacity: 0.9;
 }
 
-.socialLink:hover img {
-    filter: brightness(0) invert(1);
+.iconBox svg {
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    color: var(--primary-color);
 }
 
-.socialLink img {
-    width: 24px;
-    height: 24px;
-    transition: all 0.3s ease;
+.iconBox svg:hover{
+    color: white;
 }
 
 .teamSection {
@@ -122,15 +117,6 @@
     font-weight: 800;
     color: var(--primary-color);
     margin-bottom: 20px;
-    position: relative;
-}
-
-.teamSubtitle {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
 }
 
 .teamGrid {
@@ -139,7 +125,6 @@
     gap: 30px;
 }
 
-/* MENSAGEM DE SUCESSO */
 .successMessage {
     background-color: var(--success-color);
     color: white;
@@ -157,51 +142,15 @@
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
-    .contactHero h1 {
-        font-size: 2.2rem;
-    }
-    
     .contactContainer {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
-    .contactFormContainer {
-        padding: 30px 25px;
-    }
-    
-    .teamGrid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .teamSection {
-        padding: 60px 20px;
-    }
-    
-    .teamTitle {
-        font-size: 2rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .contactHero {
-        padding: 40px 20px;
-    }
-    
-    .contactSection {
-        padding: 40px 20px;
-    }
-    
-    .contactFormContainer {
-        padding: 25px 20px;
-    }
-    
-    .infoCard {
-        padding: 25px 20px;
-    }
-    
-    .teamGrid {
-        grid-template-columns: 1fr;
+    .iconBox {
+        width: 40px;
+        height: 40px;
     }
 }

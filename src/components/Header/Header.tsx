@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FiPhone } from 'react-icons/fi';
 import styles from './Header.module.css';
 
 const Header: React.FC = () => {
@@ -14,6 +15,7 @@ const Header: React.FC = () => {
   return (
     <header>
       <nav className={styles.navContainer}>
+
         {/* Hamburger - mobile */}
         <div className={styles.menuToggle} onClick={toggleMenu}>
           <span></span>
@@ -33,19 +35,31 @@ const Header: React.FC = () => {
           <Link to="/games"><button className={`${styles.navBtn} ${isActive('/games')}`}>Jogos</button></Link>
         </div>
 
+        {/* Botão Contato com ícone */}
         <Link to="/contact" className={styles.desktopContactBtn}>
           <button className={`${styles.navBtn} ${styles.contactBtn} ${isActive('/contact')}`}>
             Contato
-            <img src="/images/icon-contact-home.png" alt="Ícone de contato" />
+            <FiPhone className={styles.contactIcon} />
           </button>
         </Link>
 
         {/* Menu mobile */}
         <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
-          <Link to="/" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/')}`}>Home</span></Link>
-          <Link to="/videos" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/videos')}`}>Corpo em Libras</span></Link>
-          <Link to="/games" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/games')}`}>Jogos</span></Link>
-          <Link to="/contact" className={styles.mobileLink} onClick={closeMenu}><span className={`${styles.mobileText} ${isActive('/contact')}`}>Contato</span></Link>
+          <Link to="/" className={styles.mobileLink} onClick={closeMenu}>
+            <span className={`${styles.mobileText} ${isActive('/')}`}>Home</span>
+          </Link>
+
+          <Link to="/videos" className={styles.mobileLink} onClick={closeMenu}>
+            <span className={`${styles.mobileText} ${isActive('/videos')}`}>Corpo em Libras</span>
+          </Link>
+
+          <Link to="/games" className={styles.mobileLink} onClick={closeMenu}>
+            <span className={`${styles.mobileText} ${isActive('/games')}`}>Jogos</span>
+          </Link>
+
+          <Link to="/contact" className={styles.mobileLink} onClick={closeMenu}>
+            <span className={`${styles.mobileText} ${isActive('/contact')}`}>Contato</span>
+          </Link>
         </div>
 
         {/* Overlay */}

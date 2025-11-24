@@ -6,6 +6,7 @@ export interface Video {
   duration: string;
   level: string;
   thumbnail: string;
+  videoSrc: string;
 }
 
 export interface TeamMember {

@@ -53,6 +53,7 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  cursor: pointer; /* agora vira botão */
 }
 
 .videoCard:hover .playOverlay {
@@ -71,6 +72,7 @@
   color: var(--primary-color);
   transform: scale(0.8);
   transition: transform 0.3s ease;
+  pointer-events: none; /* evita bloquear o clique no container */
 }
 
 .videoCard:hover .playIcon {
@@ -90,39 +92,10 @@
   font-weight: 600;
 }
 
-/* BOTÃO ASSISTIR */
-.watchButton {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.videoCard:hover .watchButton {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.watchButton:hover {
-  background-color: var(--accent-color);
-  transform: translateY(-2px);
-}
-
+/* REMOVIDO: Botão Assistir */
+.watchButton,
 .watchIcon {
-  font-size: 0.8rem;
+  display: none !important;
 }
 
 /* INFORMAÇÕES DO VÍDEO */
@@ -198,10 +171,5 @@
   
   .videoTitle {
     font-size: 1.1rem;
-  }
-  
-  .watchButton {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

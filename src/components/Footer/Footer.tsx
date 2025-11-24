@@ -1,18 +1,25 @@
 import React from 'react';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { HiOutlineMail } from 'react-icons/hi';
+import { RiWhatsappLine } from 'react-icons/ri';
 import styles from './Footer.module.css';
 
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
+        
         <div className={styles.socialIcons}>
+
           <a
             href="https://www.instagram.com/f3lipe_cosst/"
             target="_blank"
             aria-label="Instagram"
             rel="noopener noreferrer"
           >
-            <img src="/images/icon-instagram.png" alt="Instagram" />
+            <div className={styles.iconBox}>
+              <AiOutlineInstagram className={styles.icon} />
+            </div>
           </a>
 
           <a
@@ -21,7 +28,9 @@ const Footer: React.FC = () => {
             aria-label="Email"
             rel="noopener noreferrer"
           >
-            <img src="/images/icon-email.png" alt="Email" />
+            <div className={`${styles.iconBox} ${styles.emailIcon}`}>
+              <HiOutlineMail className={styles.icon} />
+            </div>
           </a>
 
           <a
@@ -30,8 +39,11 @@ const Footer: React.FC = () => {
             aria-label="WhatsApp"
             rel="noopener noreferrer"
           >
-            <img src="/images/icon-whatsapp.png" alt="WhatsApp" />
+            <div className={styles.iconBox}>
+              <RiWhatsappLine className={styles.icon} />
+            </div>
           </a>
+
         </div>
 
         <p>© 2025 Body Signs. Todos os direitos reservados.</p>

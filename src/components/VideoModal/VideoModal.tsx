@@ -11,9 +11,7 @@ interface VideoModalProps {
 const VideoModal: React.FC<VideoModalProps> = ({ isOpen, video, onClose }) => {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
+      if (event.key === 'Escape') onClose();
     };
 
     if (isOpen) {
@@ -32,22 +30,21 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, video, onClose }) => {
   return (
     <div className={styles.videoModal} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeModal} onClick={onClose} aria-label="Fechar modal">
+        
+        <button className={styles.closeModal} onClick={onClose}>
           &times;
         </button>
-        
-        <div className={styles.modalVideo}>
-          <div className={styles.videoPlaceholder}>
-            <div className={styles.videoIcon}>📹</div>
-            <p>Vídeo demonstrativo: Sinal de {video.title} em Libras</p>
-            <p className={styles.videoNote}>
-              (Em uma implementação real, um player de vídeo seria carregado aqui)
-            </p>
-          </div>
-        </div>
-        
+
+        <video 
+          src={video.videoSrc}
+          controls
+          autoPlay
+          className={styles.videoPlayer}
+        />
+
         <h3 className={styles.modalTitle}>{video.title}</h3>
         <p className={styles.modalDescription}>{video.description}</p>
+
       </div>
     </div>
   );

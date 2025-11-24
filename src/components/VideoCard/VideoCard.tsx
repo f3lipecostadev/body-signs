@@ -21,27 +21,27 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onWatchClick }) => {
     <div className={styles.videoCard} data-category={video.category}>
       <div className={styles.thumbnailContainer}>
         <div className={styles.videoThumbnail}>
+
           <img 
             src={video.thumbnail} 
             alt={`Vídeo demonstrando o sinal de ${video.title} em Libras`} 
             className={styles.thumbnailImage}
           />
-          <div className={styles.playOverlay}>
+
+          {/* Ícone Play vira o BOTÃO */}
+          <div 
+            className={styles.playOverlay}
+            onClick={onWatchClick}
+            role="button"
+            aria-label={`Assistir ${video.title}`}
+          >
             <div className={styles.playIcon}>▶</div>
           </div>
+
           <div className={styles.videoDuration}>
             {video.duration}
           </div>
         </div>
-        
-        <button 
-          className={styles.watchButton}
-          onClick={onWatchClick}
-          aria-label={`Assistir vídeo sobre ${video.title}`}
-        >
-          <span className={styles.watchIcon}>▶</span>
-          Assistir
-        </button>
       </div>
 
       <div className={styles.videoInfo}>

@@ -1,4 +1,4 @@
-import React from "react"
+
 import { AiOutlineInstagram } from "react-icons/ai"
 import { HiOutlineMail } from "react-icons/hi"
 import { RiWhatsappLine } from "react-icons/ri"

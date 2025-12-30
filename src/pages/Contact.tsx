@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ContactForm from '../components/ContactForm'
 import TeamMember from '../components/TeamMember'
 import { TeamMember as TeamMemberType } from '../types'

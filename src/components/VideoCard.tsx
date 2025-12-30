@@ -1,5 +1,5 @@
-
 import { Video } from "../types"
+import { FaClock, FaChartBar, FaPlay } from "react-icons/fa"
 
 interface VideoCardProps {
   video: Video
@@ -32,7 +32,9 @@ export default function VideoCard({ video, onWatchClick }: VideoCardProps) {
           aria-label={`Assistir ${video.title}`}
           className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
         >
-          <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-2xl text-[var(--primary-color)] scale-90 transition-transform hover:scale-100 pointer-events-none">▶</div>
+          <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-[#6633FF] text-2xl scale-90 transition-transform hover:scale-100 pointer-events-none">
+            <FaPlay />
+          </div>
         </div>
 
         <div className="absolute bottom-2 right-2 bg-black/80 text-white px-2 py-1 text-xs font-semibold rounded">
@@ -49,8 +51,8 @@ export default function VideoCard({ video, onWatchClick }: VideoCardProps) {
         </div>
         <p className="text-gray-600 text-sm flex-1">{video.description}</p>
         <div className="flex gap-4 mt-auto text-gray-500 text-xs">
-          <div className="flex items-center gap-1"><span>⏱️</span>{video.duration}</div>
-          <div className="flex items-center gap-1"><span>📊</span>{video.level}</div>
+          <div className="flex items-center gap-1"><FaClock className="w-3.5 h-3.5 text-gray-500" />{video.duration}</div>
+          <div className="flex items-center gap-1"><FaChartBar className="w-3.5 h-3.5 text-gray-500" />{video.level}</div>
         </div>
       </div>
     </div>

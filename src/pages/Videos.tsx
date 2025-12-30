@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import VideoCard from '../components/VideoCard'
 import VideoModal from '../components/VideoModal'
 import { Video } from '../types'
+import { FaSearch, FaVideo } from 'react-icons/fa'
 
 export default function Videos() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -10,7 +11,7 @@ export default function Videos() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const videos: Video[] = useMemo(() => [
-    {
+  {
       id: '1',
       title: 'Braço',
       description: 'Demonstração do sinal para "braço" em Libras.',
@@ -214,7 +215,7 @@ export default function Videos() {
     },
   
 
-    
+
     {
       id: '23',
       title: 'Cabelo',
@@ -250,10 +251,8 @@ export default function Videos() {
       const matchesSearch =
         video.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         video.description.toLowerCase().includes(searchTerm.toLowerCase())
-
       const matchesFilter =
         activeFilter === 'todos' || video.category === activeFilter
-
       return matchesSearch && matchesFilter
     })
   }, [videos, searchTerm, activeFilter])
@@ -282,9 +281,7 @@ export default function Videos() {
 
         <div className="max-w-[1000px] mx-auto px-5">
           <div className="relative mb-6 max-w-[600px] mx-auto">
-            <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 text-lg">
-              🔍
-            </span>
+            <FaSearch className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
 
             <input
               type="text"
@@ -344,7 +341,7 @@ export default function Videos() {
 
         {filteredVideos.length === 0 && (
           <div className="text-center py-20 text-gray-500">
-            <div className="text-6xl mb-5 opacity-50">🎬</div>
+            <FaVideo className="text-[#6633FF] w-12 h-12 mx-auto mb-5 opacity-80" />
             <h3 className="text-2xl text-gray-800">
               Nenhum vídeo encontrado
             </h3>
@@ -361,5 +358,4 @@ export default function Videos() {
   )
 }
 
-
-  
+    

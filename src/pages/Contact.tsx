@@ -3,9 +3,9 @@ import ContactForm from '../components/ContactForm'
 import TeamMember from '../components/TeamMember'
 import { TeamMember as TeamMemberType } from '../types'
 
-import { AiOutlineInstagram } from 'react-icons/ai'
-import { HiOutlineMail } from 'react-icons/hi'
+import { AiOutlineInstagram, AiOutlineMail } from 'react-icons/ai'
 import { RiWhatsappLine } from 'react-icons/ri'
+import { FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Contact() {
   const [showSuccess, setShowSuccess] = useState(false)
@@ -70,7 +70,7 @@ export default function Contact() {
             {/* CARD CONTATO */}
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <h3 className="text-2xl font-bold text-blue-600 mb-5 flex items-center gap-2">
-                📧 Informações de Contato
+                <AiOutlineMail className="w-6 h-6 text-[#7F33FF]" /> Informações de Contato
               </h3>
 
               <p><strong>Email:</strong> felipekaua@acad.ifma.edu.br</p>
@@ -78,32 +78,30 @@ export default function Contact() {
               <p><strong>Horário:</strong> Segunda a Sexta, 9h às 18h</p>
 
               <div className="flex gap-4 mt-6">
-
-                <a href="https://www.instagram.com/f3lipe_cosst/" target="_blank">
+                <a href="https://www.instagram.com/f3lipe_cosst/" target="_blank" rel="noopener noreferrer">
                   <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110 hover:bg-blue-600 group">
-                    <AiOutlineInstagram className="w-6 h-6 text-blue-600 group-hover:text-white" />
+                    <AiOutlineInstagram className="w-6 h-6 text-[#7F33FF] group-hover:text-white" />
                   </div>
                 </a>
 
-                <a href="mailto:felipekaua@acad.ifma.edu.br" target="_blank">
+                <a href="mailto:felipekaua@acad.ifma.edu.br" target="_blank" rel="noopener noreferrer">
                   <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110 hover:bg-blue-600 group">
-                    <HiOutlineMail className="w-6 h-6 text-blue-600 group-hover:text-white" />
+                    <AiOutlineMail className="w-6 h-6 text-[#7F33FF] group-hover:text-white" />
                   </div>
                 </a>
 
-                <a href="https://wa.me/5598984075894" target="_blank">
+                <a href="https://wa.me/5598984075894" target="_blank" rel="noopener noreferrer">
                   <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110 hover:bg-blue-600 group">
-                    <RiWhatsappLine className="w-6 h-6 text-blue-600 group-hover:text-white" />
+                    <RiWhatsappLine className="w-6 h-6 text-[#7F33FF] group-hover:text-white" />
                   </div>
                 </a>
-
               </div>
             </div>
 
             {/* CARD LOCAL */}
             <div className="bg-white p-8 rounded-xl shadow-lg">
               <h3 className="text-2xl font-bold text-blue-600 mb-5 flex items-center gap-2">
-                📍 Onde Estamos
+                <FaMapMarkerAlt className="w-6 h-6 text-[#7F33FF]" /> Onde Estamos
               </h3>
 
               <p><strong>Instituição:</strong> IFMA Campus Timon</p>

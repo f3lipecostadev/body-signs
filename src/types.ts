@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 export interface Video {
   id: string
   title: string
@@ -24,15 +25,17 @@ export interface TeamMember {
   avatar: string
 }
 
+
 export interface Game {
   id: string
   title: string
   subtitle: string
   description: string
-  icon: string
+  icon: string | ReactElement 
   features: string[]
   type: string
 }
+
 
 export interface ContactFormData {
   name: string

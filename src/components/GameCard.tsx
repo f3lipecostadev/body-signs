@@ -1,4 +1,3 @@
-
 import { Game } from "../types"
 
 interface GameCardProps {

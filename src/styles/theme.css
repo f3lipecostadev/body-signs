@@ -1,0 +1,20 @@
+:root {
+  --app-bg: #f1f1f1;
+  --app-text: #111111;
+  --app-muted: #555555;
+
+  --brand: #3c32af;
+  --brand-strong: #5142f7;
+  --brand-light: #5f4cf7;
+  --brand-soft: #4a42e8;
+
+  --highlight: #ddef46;
+
+  --white-soft: rgba(255, 255, 255, 0.08);
+  --white-border: rgba(255, 255, 255, 0.25);
+
+  --shadow-navbar:
+    -10px 0 30px rgba(60, 50, 175, 0.35),
+    10px 0 30px rgba(81, 66, 247, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.18);
+}

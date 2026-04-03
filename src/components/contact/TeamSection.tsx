@@ -12,37 +12,37 @@ const teamMembers: TeamMember[] = [
     name: "Daiane Algarves",
     role: "Coordenadora",
     description: "Coordenação do projeto.",
-    image: "../../../public/images/daiane.jpeg",
+    image: "/images/daiane.jpeg",
   },
   {
     name: "Felipe Costa",
     role: "Desenvolvedor",
     description: "Desenvolvimento da plataforma.",
-    image: "../../../public/images/felipe.jpeg",
+    image: "/images/felipe.jpeg",
   },
   {
     name: "Kaio Javã",
     role: "Designer",
     description: "Design e experiência visual.",
-    image: "../../../public/images/kaio.jpeg",
+    image: "/images/kaio.jpeg",
   },
   {
     name: "Alexandre Martins",
     role: "Ajudante",
     description: "Apoio à equipe.",
-    image: "../../../public/images/alexandre.jpeg",
+    image: "/images/alexandre.jpeg",
   },
   {
     name: "Sthefania de Carla",
     role: "Ajudante",
     description: "Suporte ao projeto.",
-    image: "../../../public/images/sthefania.jpeg",
+    image: "/images/sthefania.jpeg",
   },
   {
     name: "João Manoel",
     role: "Ajudante",
     description: "Colaboração geral.",
-    image: "../../../public/images/joao.jpeg",
+    image: "/images/joao.jpeg",
   },
 ];
 

@@ -23,16 +23,18 @@ export function SnakeQuestionModal({
     <GameModal
       open={open}
       title="Responda para continuar"
-      description="A cobrinha só continua se você acertar."
+      description="Acertando a pergunta, a cobrinha segue a partida."
     >
       <div className="space-y-5">
         <div className="rounded-[18px] border border-[#dbe4ff] bg-[#f8faff] px-4 py-3">
           <p className="text-sm font-semibold uppercase tracking-[0.04em] text-[#5e6de6]">
             Pergunta
           </p>
+
           <h2 className="mt-2 text-[1.2rem] font-bold leading-[1.4] text-[#24314d]">
             {question.question}
           </h2>
+
           {question.assetLabel ? (
             <p className="mt-2 text-sm text-[#5f6f92]">{question.assetLabel}</p>
           ) : null}

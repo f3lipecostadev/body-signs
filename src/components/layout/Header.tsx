@@ -1,9 +1,13 @@
 import { HeaderBackground } from "@/components/layout/HeaderBackground";
 import { Navbar } from "@/components/layout/Navbar";
 
-export function Header() {
+interface HeaderProps {
+  rounded?: boolean;
+}
+
+export function Header({ rounded = true }: HeaderProps) {
   return (
-    <HeaderBackground>
+    <HeaderBackground rounded={rounded}>
       <header>
         <Navbar />
       </header>

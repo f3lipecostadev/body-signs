@@ -4,6 +4,7 @@ import { videoCategories, videosData } from "@/data/videos";
 import { normalizeText } from "@/lib/text";
 import { VideoGrid } from "@/components/body-signs/VideoGrid";
 import { VideoPlayerModal } from "@/components/body-signs/VideoPlayerModal";
+import { Reveal } from "@/components/common/Reveal";
 import type { VideoCategory, VideoItem } from "@/types/video";
 
 const categories: Array<"Todos" | VideoCategory> = [
@@ -32,7 +33,8 @@ function matchesProfessionalSearch(video: VideoItem, query: string) {
 
 export function VideoSearchSection() {
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState<"Todos" | VideoCategory>("Todos");
+  const [activeCategory, setActiveCategory] =
+    useState<"Todos" | VideoCategory>("Todos");
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
   const filteredVideos = useMemo(() => {
@@ -49,38 +51,42 @@ export function VideoSearchSection() {
   return (
     <>
       <section className="flex flex-col items-center gap-[45px]">
-        <div className="flex h-[80px] w-full max-w-[800px] items-center gap-[15px] rounded-[30px] border border-[#d8d8d8] bg-[#f3f3f3] px-[25px]">
-          <Search size={24} className="text-[#111111]" />
+        <Reveal className="w-full max-w-[800px]">
+          <div className="flex h-[80px] w-full items-center gap-[15px] rounded-[30px] border border-[#d8d8d8] bg-[#f3f3f3] px-[25px]">
+            <Search size={24} className="text-[#111111]" />
 
-          <input
-            type="text"
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            placeholder="Pesquisar vídeos"
-            className="w-full border-none bg-transparent text-[22px] outline-none placeholder:text-[#888888]"
-          />
-        </div>
+            <input
+              type="text"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Pesquisar vídeos"
+              className="w-full border-none bg-transparent text-[22px] outline-none placeholder:text-[#888888]"
+            />
+          </div>
+        </Reveal>
 
-        <div className="flex flex-wrap justify-center gap-[22px]">
-          {categories.map((category) => {
-            const isActive = activeCategory === category;
+        <Reveal delay={0.05}>
+          <div className="flex flex-wrap justify-center gap-[22px]">
+            {categories.map((category) => {
+              const isActive = activeCategory === category;
 
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => setActiveCategory(category)}
-                className={`cursor-pointer rounded-full border px-[24px] py-[12px] text-[18px] transition duration-200 hover:opacity-70 ${
-                  isActive
-                    ? "border-[#5142F7] text-[#5142F7]"
-                    : "border-transparent text-[#333333]"
-                }`}
-              >
-                {category}
-              </button>
-            );
-          })}
-        </div>
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
+                  className={`cursor-pointer rounded-full border px-[24px] py-[12px] text-[18px] transition duration-200 hover:opacity-70 ${
+                    isActive
+                      ? "border-[#5142F7] text-[#5142F7]"
+                      : "border-transparent text-[#333333]"
+                  }`}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
 
         <div className="w-full">
           {filteredVideos.length > 0 ? (
@@ -89,14 +95,16 @@ export function VideoSearchSection() {
               onOpenVideo={(video) => setSelectedVideo(video)}
             />
           ) : (
-            <div className="rounded-[28px] bg-white px-8 py-16 text-center shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
-              <h2 className="mb-3 font-['Poppins'] text-[30px] font-bold text-[#222222]">
-                Nenhum vídeo encontrado
-              </h2>
-              <p className="text-[18px] text-[#666666]">
-                Tente outro termo ou mude o tema selecionado.
-              </p>
-            </div>
+            <Reveal delay={0.08}>
+              <div className="rounded-[28px] bg-white px-8 py-16 text-center shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+                <h2 className="mb-3 font-['Poppins'] text-[30px] font-bold text-[#222222]">
+                  Nenhum vídeo encontrado
+                </h2>
+                <p className="text-[18px] text-[#666666]">
+                  Tente outro termo ou mude o tema selecionado.
+                </p>
+              </div>
+            </Reveal>
           )}
         </div>
       </section>

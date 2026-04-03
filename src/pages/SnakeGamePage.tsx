@@ -1,13 +1,13 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { RotateCcw } from "lucide-react";
 import { GameHeader } from "@/components/games/GameHeader";
 import { GameShell } from "@/components/games/GameShell";
 import { GameStatusCard } from "@/components/games/GameStatusCard";
 import { quizQuestionsData } from "@/data/quizQuestions";
-import { INITIAL_SPEED } from "@/features/snake-game/constants";
 import { SnakeBoard } from "@/features/snake-game/components/SnakeBoard";
 import { SnakeCorrectOverlay } from "@/features/snake-game/components/SnakeCorrectOverlay";
 import { SnakeGameOverModal } from "@/features/snake-game/components/SnakeGameOverModal";
+import { SnakeHud } from "@/features/snake-game/components/SnakeHud";
 import { SnakeQuestionModal } from "@/features/snake-game/components/SnakeQuestionModal";
 import { SnakeStartScreen } from "@/features/snake-game/components/SnakeStartScreen";
 import { useSnakeGame } from "@/features/snake-game/hooks/useSnakeGame";
@@ -20,6 +20,7 @@ export function SnakeGamePage() {
     snake,
     food,
     score,
+    speed,
     isStarted,
     isPaused,
     isGameOver,
@@ -30,39 +31,25 @@ export function SnakeGamePage() {
     countdown,
     startGame,
     move,
-    changeDirection,
     handleQuestionAnswer,
     resetGame,
   } = useSnakeGame(questions);
 
   useSnakeLoop({
     enabled: isStarted && !isPaused && !isGameOver,
-    speed: INITIAL_SPEED,
+    speed,
     onTick: move,
   });
 
-  useEffect(() => {
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
-        changeDirection("UP");
-      }
-
-      if (event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
-        changeDirection("DOWN");
-      }
-
-      if (event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
-        changeDirection("LEFT");
-      }
-
-      if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
-        changeDirection("RIGHT");
-      }
-    }
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [changeDirection]);
+  const gameStateLabel = isGameOver
+    ? "Fim de jogo"
+    : currentQuestion
+      ? "Respondendo"
+      : isStarted
+        ? isPaused
+          ? "Pausado"
+          : "Jogando"
+        : "Parado";
 
   return (
     <>
@@ -70,7 +57,7 @@ export function SnakeGamePage() {
         <GameHeader
           eyebrow="Educativo • Cobrinha"
           title="Cobrinha com Perguntas"
-          description="Pegue os pontos no tabuleiro e responda corretamente para continuar."
+          description="Capture os itens do tabuleiro e responda corretamente para continuar jogando."
           actions={
             <button
               type="button"
@@ -85,24 +72,35 @@ export function SnakeGamePage() {
 
         <section className="mb-5 grid grid-cols-1 gap-[14px] md:grid-cols-3">
           <GameStatusCard label="Pontuação" value={score} />
-          <GameStatusCard
-            label="Estado"
-            value={
-              isGameOver
-                ? "Game Over"
-                : currentQuestion
-                  ? "Respondendo"
-                  : isStarted
-                    ? "Jogando"
-                    : "Parado"
-            }
-          />
+          <GameStatusCard label="Estado" value={gameStateLabel} />
           <GameStatusCard label="Controles" value="WASD / Setas" />
         </section>
 
         <section className="flex flex-col items-center gap-6">
-          <SnakeBoard snake={snake} food={food} />
-          <SnakeStartScreen open={!isStarted && !isGameOver} onStart={startGame} />
+          {isStarted ? (
+            <>
+              <SnakeHud
+                score={score}
+                speed={speed}
+                isPaused={isPaused || !!currentQuestion}
+              />
+
+              <SnakeBoard snake={snake} food={food} />
+
+              <div className="w-full max-w-[520px] rounded-[18px] border border-[#dbe4ff] bg-white px-5 py-4 text-sm text-[#51627f] shadow-[0_8px_18px_rgba(66,86,150,0.08)]">
+                <p className="font-semibold text-[#24314d]">
+                  Como funciona
+                </p>
+                <p className="mt-2">
+                  Controle a cobrinha usando o teclado. Sempre que capturar um item,
+                  uma pergunta será aberta. Ao acertar, você continua a partida. Se
+                  errar, o jogo termina.
+                </p>
+              </div>
+            </>
+          ) : (
+            <SnakeStartScreen open={!isStarted && !isGameOver} onStart={startGame} />
+          )}
         </section>
       </GameShell>
 

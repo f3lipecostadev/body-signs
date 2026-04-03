@@ -14,7 +14,7 @@ export function SnakeCorrectOverlay({
       open={open}
       title="Resposta correta"
       countdown={countdown}
-      description="A cobrinha vai continuar em instantes."
+      description="Muito bem! A cobrinha continuará em instantes."
     />
   );
 }

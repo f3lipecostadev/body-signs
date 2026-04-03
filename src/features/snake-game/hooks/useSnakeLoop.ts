@@ -18,6 +18,8 @@ export function useSnakeLoop({
       onTick();
     }, speed);
 
-    return () => window.clearInterval(interval);
+    return () => {
+      window.clearInterval(interval);
+    };
   }, [enabled, onTick, speed]);
 }

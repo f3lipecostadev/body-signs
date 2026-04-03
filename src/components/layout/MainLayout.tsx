@@ -6,18 +6,20 @@ import { ScrollToTopOnRouteChange } from "@/components/common/ScrollToTopOnRoute
 interface MainLayoutProps extends PropsWithChildren {
   showHeader?: boolean;
   showFooter?: boolean;
+  headerRounded?: boolean;
 }
 
 export function MainLayout({
   children,
   showHeader = true,
   showFooter = true,
+  headerRounded = true,
 }: MainLayoutProps) {
   return (
-    <div className="min-h-screen bg-[#f1f1f1] text-[#111111]">
+    <div className="min-h-screen w-screen overflow-x-hidden bg-[#f1f1f1] text-[#111111]">
       <ScrollToTopOnRouteChange />
 
-      {showHeader ? <Header /> : null}
+      {showHeader ? <Header rounded={headerRounded} /> : null}
 
       <div className="flex min-h-[calc(100vh-220px)] flex-col">
         <main className="flex-1">{children}</main>

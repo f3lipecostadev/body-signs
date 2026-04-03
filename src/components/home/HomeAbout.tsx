@@ -27,7 +27,7 @@ export function HomeAbout() {
   return (
     <div
       className="w-full bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/background.jpg')" }}
+      style={{ backgroundImage: "url('/images/background.png')" }}
     >
       <section className="min-h-[95vh] flex items-center justify-center px-[80px] py-[100px] max-[950px]:px-[24px] max-[950px]:py-[70px]">
         

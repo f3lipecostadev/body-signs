@@ -16,7 +16,7 @@ export function SnakeGameOverModal({
   return (
     <GameModal open={open}>
       <ResultScreen
-        title="Game Over"
+        title="Fim de jogo"
         description={`Sua pontuação final foi ${score}. Reinicie para tentar novamente.`}
         actions={
           <button

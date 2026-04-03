@@ -14,12 +14,12 @@ export function HeaderBackground({
   return (
     <div
       className={cn(
-        "bg-cover bg-center pt-[80px] pb-[80px]",
-        rounded && "rounded-b-[42px]",
+        "bg-cover bg-center pt-[80px]",
+        rounded ? "pb-[80px] rounded-b-[42px]" : "pb-[80px] rounded-none",
         className,
       )}
       style={{
-        backgroundImage: "url('/images/background.jpg')",
+        backgroundImage: "url('/images/background.png')",
       }}
     >
       {children}

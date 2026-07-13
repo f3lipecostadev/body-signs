@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3c32af"/>
+      <stop offset="100%" stop-color="#5f4cf7"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <circle cx="320" cy="180" r="54" fill="rgba(255,255,255,0.16)"/>
+  <path d="M303 156 L303 204 L343 180 Z" fill="#ffffff"/>
+  <text x="320" y="270" font-family="Inter, sans-serif" font-size="20" fill="rgba(255,255,255,0.85)" text-anchor="middle">Vídeo em breve</text>
+</svg>

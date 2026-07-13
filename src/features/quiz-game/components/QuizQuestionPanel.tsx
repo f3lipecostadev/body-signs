@@ -20,7 +20,6 @@ interface QuizQuestionPanelProps {
 export function QuizQuestionPanel({
   type,
   question,
-  assetLabel,
   imageSrc,
   imageAlt,
   label,

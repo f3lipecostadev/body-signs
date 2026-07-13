@@ -1,4 +1,4 @@
-import { Sparkles, Trophy } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { GameModal } from "@/components/games/GameModal";
 import { ResultScreen } from "@/components/games/ResultScreen";
 

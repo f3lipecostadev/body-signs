@@ -13,7 +13,6 @@ interface QuizResultModalProps {
 export function QuizResultModal({
   open,
   score,
-  reachedQuestion,
   totalQuestions,
   onRestart,
 }: QuizResultModalProps) {

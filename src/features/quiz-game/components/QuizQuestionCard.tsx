@@ -1,4 +1,4 @@
-import { bodySignsData } from "@/data/bodySigns";
+import { getBodySignById } from "@/data/bodySigns";
 import type {
   QuizAnswerResult,
   QuizOption,
@@ -7,48 +7,11 @@ import type {
 import { QuizOptionButton } from "@/features/quiz-game/components/QuizOptionButton";
 import { QuizQuestionPanel } from "@/features/quiz-game/components/QuizQuestionPanel";
 
-function normalizeText(value: string) {
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim();
-}
-
-function findImageOption(options: QuizOption[]) {
-  const normalizedOptions = options
-    .filter((option) => option.isCorrect)
-    .map((option) => normalizeText(option.text));
-
-  return bodySignsData.find((item) => {
-    const normalizedName = normalizeText(item.name);
-
-    return normalizedOptions.some((optionText) => {
-      if (optionText === normalizedName) return true;
-
-      const aliases: Record<string, string[]> = {
-        olho: ["olho", "olhos"],
-        cabeca: ["cabeça", "cabeca", "cabeça"],
-        orelha: ["orelha", "orelhas"],
-        boca: ["boca", "bocas"],
-        testa: ["testa"],
-        queixo: ["queixo"],
-        ombro: ["ombro", "ombros"],
-        mao: ["mão", "mao", "mãos", "maos"],
-        pe: ["pé", "pe", "pés"],
-        lingua: ["língua", "lingua"],
-      };
-
-      const aliasList = aliases[normalizedName] ?? [];
-      return aliasList.includes(optionText);
-    });
-  });
-}
-
 interface QuizQuestionCardProps {
   type: QuizQuestionType;
   question: string;
   assetLabel?: string;
+  imageId?: string;
   options: QuizOption[];
   answerResult: QuizAnswerResult | null;
   selectedOptionId: string | null;
@@ -59,12 +22,29 @@ export function QuizQuestionCard({
   type,
   question,
   assetLabel,
+  imageId,
   options,
   answerResult,
   selectedOptionId,
   onSelect,
 }: QuizQuestionCardProps) {
-  const imageOption = type === "image" ? findImageOption(options) : undefined;
+  // Resolução da imagem: SEMPRE via `imageId`, que referencia diretamente
+  // o `id` de um item em bodySignsData. Nada de adivinhar o sinal a partir
+  // do texto da alternativa correta — isso era frágil e silenciosamente
+  // falhava sempre que o bodySignsData não continha uma entrada com nome
+  // igual (ou "aliasado") ao texto da resposta.
+  const imageOption = type === "image" && imageId ? getBodySignById(imageId) : undefined;
+
+  if (import.meta.env.DEV && type === "image" && !imageId) {
+    console.warn(
+      `[QuizQuestionCard] Pergunta "${question}" é do tipo "image" mas não define "imageId". Nenhuma imagem será exibida.`,
+    );
+  }
+  if (import.meta.env.DEV && type === "image" && imageId && !imageOption) {
+    console.warn(
+      `[QuizQuestionCard] imageId "${imageId}" não existe em bodySignsData. Verifique src/data/bodySigns.ts.`,
+    );
+  }
 
   return (
     <section className="flex flex-col gap-5">
@@ -73,7 +53,7 @@ export function QuizQuestionCard({
         question={question}
         assetLabel={assetLabel}
         imageSrc={imageOption?.image}
-        imageAlt={imageOption ? `Imagem do sinal ${imageOption.name}` : undefined}
+        imageAlt={imageOption ? assetLabel ?? `Imagem do sinal ${imageOption.name}` : undefined}
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

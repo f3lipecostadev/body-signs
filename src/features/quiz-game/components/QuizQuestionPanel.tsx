@@ -5,7 +5,6 @@ const TYPE_LABEL: Record<QuizQuestionType, string> = {
   "multiple-choice": "Múltipla escolha",
   "direct-answer": "Resposta direta",
   image: "Pergunta com imagem",
-  video: "Pergunta com vídeo",
 };
 
 interface QuizQuestionPanelProps {

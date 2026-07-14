@@ -53,6 +53,7 @@ export function QuizGamePage() {
             type={currentQuestion.type}
             question={currentQuestion.question}
             assetLabel={currentQuestion.assetLabel}
+            imageId={currentQuestion.imageId}
             options={options}
             answerResult={answerResult}
             selectedOptionId={selectedOptionId}

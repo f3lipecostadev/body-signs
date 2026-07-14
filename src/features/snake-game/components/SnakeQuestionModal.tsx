@@ -1,46 +1,14 @@
-import { bodySignsData } from "@/data/bodySigns";
+import { getBodySignById } from "@/data/bodySigns";
 import type { QuizAnswerResult, QuizQuestion } from "@/features/quiz-game/types";
 import { GameModal } from "@/components/games/GameModal";
 import { QuizOptionButton } from "@/features/quiz-game/components/QuizOptionButton";
 import { QuizQuestionPanel } from "@/features/quiz-game/components/QuizQuestionPanel";
 
-function normalizeText(value: string) {
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim();
-}
-
-function findImageOption(question: QuizQuestion) {
-  const normalizedOptions = question.options
-    .filter((option) => option.isCorrect)
-    .map((option) => normalizeText(option.text));
-
-  return bodySignsData.find((item) => {
-    const normalizedName = normalizeText(item.name);
-
-    return normalizedOptions.some((optionText) => {
-      if (optionText === normalizedName) return true;
-
-      const aliases: Record<string, string[]> = {
-        olho: ["olho", "olhos"],
-        cabeca: ["cabeça", "cabeca"],
-        orelha: ["orelha", "orelhas"],
-        boca: ["boca", "bocas"],
-        testa: ["testa"],
-        queixo: ["queixo"],
-        ombro: ["ombro", "ombros"],
-        mao: ["mão", "mao", "mãos", "maos"],
-        pe: ["pé", "pe", "pés"],
-        lingua: ["língua", "lingua"],
-      };
-
-      const aliasList = aliases[normalizedName] ?? [];
-      return aliasList.includes(optionText);
-    });
-  });
-}
+// Resolução de imagem centralizada em src/data/bodySigns.ts (getBodySignById).
+// Antes esta função duplicava (com pequenas divergências!) a mesma lógica
+// frágil de match por texto que existia em QuizQuestionCard.tsx — duas
+// fontes de verdade diferentes para o mesmo problema, o que é uma receita
+// para bugs como o do "nariz" reaparecerem de formas distintas em cada tela.
 
 interface SnakeQuestionModalProps {
   open: boolean;
@@ -59,7 +27,10 @@ export function SnakeQuestionModal({
 }: SnakeQuestionModalProps) {
   if (!question) return null;
 
-  const imageOption = question.type === "image" ? findImageOption(question) : undefined;
+  const imageOption =
+    question.type === "image" && question.imageId
+      ? getBodySignById(question.imageId)
+      : undefined;
 
   return (
     <GameModal
@@ -73,7 +44,7 @@ export function SnakeQuestionModal({
           question={question.question}
           assetLabel={question.assetLabel}
           imageSrc={imageOption?.image}
-          imageAlt={imageOption ? `Imagem do sinal ${imageOption.name}` : undefined}
+          imageAlt={imageOption ? question.assetLabel ?? `Imagem do sinal ${imageOption.name}` : undefined}
           label="Pergunta"
         />
 

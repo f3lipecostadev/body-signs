@@ -398,9 +398,9 @@ export const quizQuestionsData: QuizQuestion[] = [
   {
     id: "q31",
     type: "true-false",
-    question: "Os dedos são mostrados quando a mão está aberta.",
+    question: "O \"dedo da mão\" é mostrado quando a mão está aberta.",
     difficulty: "medium",
-    category: "dedos",
+    category: "dedo da mão",
     options: [
       { id: "a", text: "Verdadeiro", isCorrect: true },
       { id: "b", text: "Falso", isCorrect: false },
@@ -409,11 +409,11 @@ export const quizQuestionsData: QuizQuestion[] = [
   {
     id: "q32",
     type: "multiple-choice",
-    question: "Qual representa “dedos”?",
+    question: "Qual representa “dedo da mão”?",
     difficulty: "medium",
-    category: "dedos",
+    category: "dedo da mão",
     options: [
-      { id: "a", text: "Mostrar os dedos", isCorrect: true },
+      { id: "a", text: "Mostrar os dedos da mão", isCorrect: true },
       { id: "b", text: "Tocar o cotovelo", isCorrect: false },
       { id: "c", text: "Apontar o pé", isCorrect: false },
       { id: "d", text: "Tocar o ombro", isCorrect: false },
@@ -603,6 +603,30 @@ export const quizQuestionsData: QuizQuestion[] = [
       { id: "b", text: "Tocar o joelho", isCorrect: false },
       { id: "c", text: "Tocar o quadril", isCorrect: false },
       { id: "d", text: "Tocar o ombro", isCorrect: false },
+    ],
+  },
+  {
+    id: "q49",
+    type: "true-false",
+    question: "O \"dedo do pé\" é mostrado apontando para os dedos na ponta do pé.",
+    difficulty: "hard",
+    category: "dedo do pé",
+    options: [
+      { id: "a", text: "Verdadeiro", isCorrect: true },
+      { id: "b", text: "Falso", isCorrect: false },
+    ],
+  },
+  {
+    id: "q50",
+    type: "multiple-choice",
+    question: "Qual representa “dedo do pé”?",
+    difficulty: "hard",
+    category: "dedo do pé",
+    options: [
+      { id: "a", text: "Apontar os dedos do pé", isCorrect: true },
+      { id: "b", text: "Tocar o tornozelo", isCorrect: false },
+      { id: "c", text: "Tocar o joelho", isCorrect: false },
+      { id: "d", text: "Tocar a coxa", isCorrect: false },
     ],
   },
 ];

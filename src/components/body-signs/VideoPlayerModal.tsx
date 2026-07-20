@@ -1,5 +1,4 @@
 import { X } from "lucide-react";
-import { getYoutubeEmbedUrl } from "@/lib/youtube";
 import type { VideoItem } from "@/types/video";
 
 interface VideoPlayerModalProps {
@@ -14,8 +13,6 @@ export function VideoPlayerModal({
   onClose,
 }: VideoPlayerModalProps) {
   if (!open || !video) return null;
-
-  const embedUrl = getYoutubeEmbedUrl(video.youtubeUrl);
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8">
@@ -48,19 +45,17 @@ export function VideoPlayerModal({
 
         <div className="overflow-hidden rounded-[24px] bg-black shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
           <div className="aspect-video w-full">
-            {embedUrl ? (
-              <iframe
-                src={embedUrl}
-                title={video.title}
-                className="h-full w-full border-0"
-                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                allowFullScreen
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center px-6 text-center text-white/70">
-                Não foi possível carregar este vídeo.
-              </div>
-            )}
+            <video
+              key={video.id}
+              src={video.video}
+              poster={video.thumbnail}
+              controls
+              autoPlay
+              playsInline
+              className="h-full w-full"
+            >
+              Não foi possível carregar este vídeo.
+            </video>
           </div>
         </div>
       </div>

@@ -8,9 +8,9 @@ export interface VideoItem {
   id: string;
   title: string;
   description: string;
-  duration: string;
-  youtubeUrl: string;
-  thumbnail?: string;
   category: VideoCategory;
+  thumbnail: string;
+  video: string;
+  duration?: string;
   tags: string[];
 }

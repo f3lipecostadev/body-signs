@@ -47,7 +47,7 @@ export function QuizQuestionCard({
   }
 
   return (
-    <section className="flex flex-col gap-5">
+    <section className="flex min-h-0 flex-1 flex-col gap-2 sm:gap-4 md:gap-5">
       <QuizQuestionPanel
         type={type}
         question={question}
@@ -56,7 +56,7 @@ export function QuizQuestionCard({
         imageAlt={imageOption ? assetLabel ?? `Imagem do sinal ${imageOption.name}` : undefined}
       />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
         {options.map((option, index) => (
           <QuizOptionButton
             key={option.id}

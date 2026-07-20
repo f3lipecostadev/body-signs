@@ -25,10 +25,10 @@ export function QuizOptionButton({
     answerResult?.selectedOptionId === option.id && !answerResult.isCorrect;
 
   let className =
-    "flex w-full min-h-[72px] items-center gap-4 rounded-[18px] border px-5 py-4 text-left text-[1rem] font-semibold transition duration-200 ";
+    "flex w-full min-h-[56px] items-center gap-2 rounded-[12px] border px-2.5 py-2 text-left text-[0.8rem] leading-tight font-semibold transition duration-200 sm:min-h-[64px] sm:gap-3 sm:rounded-[16px] sm:px-4 sm:py-3 sm:text-[0.9rem] md:min-h-[72px] md:gap-4 md:rounded-[18px] md:px-5 md:py-4 md:text-[1rem] ";
 
   let badgeClassName =
-    "flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-sm font-black uppercase tracking-[0.08em] ";
+    "flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-[0.65rem] font-black uppercase tracking-[0.08em] sm:h-7 sm:w-7 sm:text-xs md:h-9 md:w-9 md:text-sm ";
 
   if (!answerResult) {
     className += isSelected

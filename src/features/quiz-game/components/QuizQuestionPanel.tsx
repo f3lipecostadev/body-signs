@@ -24,23 +24,23 @@ export function QuizQuestionPanel({
   label,
 }: QuizQuestionPanelProps) {
   return (
-    <div className="rounded-[24px] bg-[#3c32af] p-6 shadow-[0_10px_24px_rgba(60,50,175,0.22)] md:p-8">
-      <p className="text-[0.95rem] font-medium text-[#dcd9ff]">
+    <div className="rounded-[16px] bg-[#3c32af] p-3 shadow-[0_10px_24px_rgba(60,50,175,0.22)] sm:rounded-[20px] sm:p-5 md:rounded-[24px] md:p-8">
+      <p className="text-[0.7rem] font-medium text-[#dcd9ff] sm:text-[0.85rem] md:text-[0.95rem]">
         {label ?? TYPE_LABEL[type]}
       </p>
 
       {imageSrc ? (
-        <div className="mt-5 overflow-hidden rounded-[20px] border border-white/15 bg-[#eef2ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
+        <div className="mt-2 overflow-hidden rounded-[12px] border border-white/15 bg-[#eef2ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] sm:mt-3 sm:rounded-[16px] md:mt-5 md:rounded-[20px]">
           <img
             src={imageSrc}
             alt={imageAlt ?? "Imagem da pergunta"}
-            className="w-full max-h-[260px] object-contain"
+            className="max-h-[110px] w-full object-contain sm:max-h-[160px] md:max-h-[220px] lg:max-h-[260px]"
             draggable={false}
           />
         </div>
       ) : null}
 
-      <h2 className={`mt-5 text-[1.35rem] font-bold leading-[1.4] text-white md:text-[1.5rem] ${imageSrc ? "md:mt-6" : ""}`}>
+      <h2 className={`mt-2 text-[1rem] font-bold leading-[1.3] text-white sm:mt-3 sm:text-[1.2rem] md:text-[1.35rem] lg:text-[1.5rem] ${imageSrc ? "sm:mt-4 md:mt-6" : ""}`}>
         {question}
       </h2>
     </div>

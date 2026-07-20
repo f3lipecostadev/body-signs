@@ -38,15 +38,17 @@ export function QuizGamePage() {
             <button
               type="button"
               onClick={restart}
-              className="inline-flex items-center gap-2 rounded-full bg-[#3c32af] px-[18px] py-3 font-bold text-white shadow-[0_10px_22px_rgba(60,50,175,0.28)] transition hover:-translate-y-[2px]"
+              aria-label="Reiniciar quiz"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#3c32af] px-3 py-2 text-sm font-bold text-white shadow-[0_10px_22px_rgba(60,50,175,0.28)] transition hover:-translate-y-[2px] sm:gap-2 sm:px-[18px] sm:py-3 sm:text-base"
             >
-              <RotateCcw size={18} />
-              Reiniciar
+              <RotateCcw size={16} className="sm:hidden" />
+              <RotateCcw size={18} className="hidden sm:block" />
+              <span className="hidden sm:inline">Reiniciar</span>
             </button>
           }
         />
 
-        <div className="mx-auto flex w-full max-w-[860px] flex-1 flex-col justify-center gap-6">
+        <div className="mx-auto flex w-full min-h-0 max-w-[860px] flex-1 flex-col justify-center gap-2 sm:gap-4 md:gap-6">
           <QuizProgress current={currentIndex + 1} total={total} />
 
           <QuizQuestionCard
@@ -64,7 +66,7 @@ export function QuizGamePage() {
             type="button"
             disabled={!answerResult}
             onClick={goToNextQuestion}
-            className="flex w-full items-center justify-center gap-2 rounded-[16px] border border-[#dbe4ff] bg-white px-5 py-4 font-bold text-[#24314d] transition disabled:cursor-not-allowed disabled:opacity-40 enabled:hover:-translate-y-[2px] enabled:hover:shadow-[0_8px_18px_rgba(66,86,150,0.12)]"
+            className="flex w-full flex-shrink-0 items-center justify-center gap-2 rounded-[14px] border border-[#dbe4ff] bg-white px-4 py-2.5 text-sm font-bold text-[#24314d] transition disabled:cursor-not-allowed disabled:opacity-40 enabled:hover:-translate-y-[2px] enabled:hover:shadow-[0_8px_18px_rgba(66,86,150,0.12)] sm:rounded-[16px] sm:px-5 sm:py-3.5 sm:text-base md:py-4"
           >
             Próxima
             <ArrowRight size={18} />

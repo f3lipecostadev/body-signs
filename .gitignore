@@ -26,8 +26,3 @@ dist-ssr
 # Cache do Vite / TypeScript
 .vite
 *.tsbuildinfo
-
-# Variáveis de ambiente
-.env
-.env.*
-!.env.example

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <defs>
+    <linearGradient id="snakeBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef0ff"/>
+      <stop offset="100%" stop-color="#dbe0ff"/>
+    </linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#24324a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a7b5ff"/>
+      <stop offset="100%" stop-color="#5f74ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" rx="32" fill="url(#snakeBg)"/>
+
+  <rect x="100" y="90" width="440" height="300" rx="28" fill="url(#board)"/>
+
+  <g>
+    <circle cx="180" cy="180" r="24" fill="url(#body)"/>
+    <circle cx="230" cy="180" r="24" fill="url(#body)"/>
+    <circle cx="280" cy="180" r="24" fill="url(#body)"/>
+    <circle cx="280" cy="230" r="24" fill="url(#body)"/>
+    <circle cx="280" cy="280" r="26" fill="#ffd45c"/>
+    <circle cx="292" cy="272" r="5" fill="#111827"/>
+    <circle cx="292" cy="288" r="5" fill="#111827"/>
+  </g>
+
+  <g>
+    <circle cx="420" cy="220" r="20" fill="#ff5f8b"/>
+    <circle cx="413" cy="213" r="6" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+  <g transform="translate(260,395)">
+    <rect x="0" y="0" width="120" height="36" rx="18" fill="#ddef46"/>
+    <text x="60" y="24" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#24314d" text-anchor="middle">SCORE</text>
+  </g>
+</svg>

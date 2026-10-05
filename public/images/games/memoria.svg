@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <defs>
+    <linearGradient id="memBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef0ff"/>
+      <stop offset="100%" stop-color="#dbe0ff"/>
+    </linearGradient>
+    <linearGradient id="memCardBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9c7fff"/>
+      <stop offset="100%" stop-color="#5142f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" rx="32" fill="url(#memBg)"/>
+
+  <g>
+    <rect x="90" y="120" width="150" height="180" rx="20" fill="url(#memCardBack)" transform="rotate(-6 165 210)"/>
+    <circle cx="165" cy="210" r="34" fill="rgba(255,255,255,0.25)" transform="rotate(-6 165 210)"/>
+
+    <rect x="245" y="150" width="150" height="180" rx="20" fill="#ffffff" stroke="#dbe4ff" stroke-width="4"/>
+    <circle cx="320" cy="215" r="42" fill="#ffe08a"/>
+    <path d="M300 220 q20 22 40 0" stroke="#24314d" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="306" cy="205" r="5" fill="#24314d"/>
+    <circle cx="334" cy="205" r="5" fill="#24314d"/>
+    <rect x="270" y="270" width="100" height="14" rx="7" fill="#e4e8ff"/>
+
+    <rect x="400" y="120" width="150" height="180" rx="20" fill="url(#memCardBack)" transform="rotate(6 475 210)"/>
+    <circle cx="475" cy="210" r="34" fill="rgba(255,255,255,0.25)" transform="rotate(6 475 210)"/>
+  </g>
+
+  <g transform="translate(255,340)">
+    <circle cx="65" cy="30" r="30" fill="#ddef46"/>
+    <path d="M53 30 L61 38 L79 18" stroke="#24314d" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

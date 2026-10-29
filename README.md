@@ -14,8 +14,6 @@
 
 </div>
 
-![Página inicial do Body Signs](docs/screenshot-home.jpg)
-
 ## Sumário
 
 - [Sobre o projeto](#sobre-o-projeto)
